@@ -30,18 +30,18 @@ public class MainActivity extends ActionBarActivity {
         webView.setWebViewClient(new WebViewClient(){
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                if(url.contains("file:///android_asset")==false){
+                if(url.contains("file:///android_asset")){
                     return false;
                 }
                 if(url.contains("http://openlibrary.org/search.json?title=")){
                     String[] titleParts=url.split("=");
                     if(titleParts.length>1) {
                         Book book = new Book();
-                        book.title = titleParts[1];
+                        book.title = titleParts[1].replaceAll("%20", " ");
                         BookListActivity.start(MainActivity.this,book);
                     }
                 }
-                    return false;
+                return true;
             }
             @Override
             public void onReceivedError (WebView view, int errorCode,

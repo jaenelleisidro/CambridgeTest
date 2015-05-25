@@ -36,6 +36,10 @@ repositories {
 
 
 dependencies {
+    //cardview
+    compile 'com.android.support:cardview-v7:21.0.3'
+
+
     //dependency injection for models
     compile 'com.squareup.dagger:dagger:1.0.1'
     compile 'com.squareup.dagger:dagger-compiler:1.0.1'

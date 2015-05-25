@@ -13,29 +13,30 @@ import android.widget.TextView;
 import com.commonsware.cwac.endless.EndlessAdapter;
 import com.herobo.securitywizards.cambridgetest.R;
 import com.herobo.securitywizards.cambridgetest.domain.Book;
-import com.herobo.securitywizards.cambridgetest.domain.Movies;
-import com.herobo.securitywizards.cambridgetest.model.MovieService;
+import com.herobo.securitywizards.cambridgetest.domain.Books;
+import com.herobo.securitywizards.cambridgetest.model.BookService;
 
 import java.util.ArrayList;
 
 
-public class MovieAdapter extends EndlessAdapter {
+public class BookAdapter extends EndlessAdapter {
   private RotateAnimation rotate=null;
   private View pendingView=null;
-  private MovieService movieService;
+  private BookService bookService;
+  private String title;
 
 
-
-  public MovieAdapter(Context ctxt, MovieService movieService) {
-    this(ctxt,new ArrayList<Book>(),movieService);
+  public BookAdapter(Context ctxt, BookService bookService,String title) {
+    this(ctxt,new ArrayList<Book>(), bookService,title);
   }
 
-  public MovieAdapter(Context ctxt, ArrayList<Book> list, MovieService movieService) {
+  public BookAdapter(Context ctxt, ArrayList<Book> list, BookService bookService,String title) {
     super(new ArrayAdapter<Book>(ctxt,
                                     R.layout.adapter_simplelist_row,
                                     R.id.title,
                                     list));
-    this.movieService=movieService;
+    this.bookService = bookService;
+    this.title=title;
     rotate=new RotateAnimation(0f, 360f, Animation.RELATIVE_TO_SELF,
                                 0.5f, Animation.RELATIVE_TO_SELF,
                                 0.5f);
@@ -83,7 +84,7 @@ public class MovieAdapter extends EndlessAdapter {
 
 
 
-  volatile Movies movies;
+  volatile Books books;
 
     /**
      * returns true if there's still data that can be fetched
@@ -93,9 +94,10 @@ public class MovieAdapter extends EndlessAdapter {
   protected boolean cacheInBackground() {
     //to test for slow netwrok try this -> SystemClock.sleep(10000);
     try {
-        movies = movieService.getMovie(getWrappedAdapter().getCount());
-        return (getWrappedAdapter().getCount() < movies.num_found);
+        books = bookService.searchBooks(title, getWrappedAdapter().getCount());
+        return (getWrappedAdapter().getCount() < books.num_found);
     }catch(RuntimeException e2){
+
     }catch(Exception e){
     }
       return true;
@@ -103,10 +105,10 @@ public class MovieAdapter extends EndlessAdapter {
   
   @Override
   protected void appendCachedData() {
-    if (movies!=null && getWrappedAdapter().getCount()< movies.num_found) {
+    if (books !=null && getWrappedAdapter().getCount()< books.num_found) {
       ArrayAdapter<Book> a=(ArrayAdapter<Book>)getWrappedAdapter();
       //if you need to find the index.. a.getCount()-1
-      for(Book book :movies.docs){
+      for(Book book : books.docs){
           a.add(book);
       }
     }

@@ -6,6 +6,6 @@ package com.herobo.securitywizards.cambridgetest;
 public class Constant {
     public class HTTP{
         public static final String OPENLIBRARY_URL="http://openlibrary.org";
-        public static final String SEARCH="search.json";
+        public static final String SEARCH="/search.json";
     }
 }

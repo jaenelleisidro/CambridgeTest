@@ -9,21 +9,23 @@ import android.widget.ListView;
 
 import com.herobo.securitywizards.cambridgetest.R;
 import com.herobo.securitywizards.cambridgetest.domain.Book;
-import com.herobo.securitywizards.cambridgetest.model.MovieService;
+import com.herobo.securitywizards.cambridgetest.model.BookService;
 import com.herobo.securitywizards.cambridgetest.other.dagger.Injector;
-import com.herobo.securitywizards.cambridgetest.viewcontroller.adapter.MovieAdapter;
+import com.herobo.securitywizards.cambridgetest.viewcontroller.adapter.BookAdapter;
 
 import javax.inject.Inject;
 
 import butterknife.InjectView;
 
-public class MoviesFragment extends BaseFragment {
+public class BooksFragment extends BaseFragment {
 
     @Inject
-    protected MovieService movieService;
+    protected BookService bookService;
 
     @InjectView(R.id.lvListHolder)
     protected ListView lvMovies;
+
+    Book book;
     @Override
     public void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +38,7 @@ public class MoviesFragment extends BaseFragment {
 
     @Override
     public void onActivityCreated2(Bundle savedInstanceState) {
-        MovieAdapter adapter=new MovieAdapter(getActivity(),movieService);
+        BookAdapter adapter=new BookAdapter(getActivity(), bookService,book.title);
         lvMovies.setAdapter(adapter);
         lvMovies.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -46,14 +48,20 @@ public class MoviesFragment extends BaseFragment {
         });
     }
     @Override
-    public void onRestoreInstanceState(Bundle savedInstanceState){}
+    public void onRestoreInstanceState(Bundle savedInstanceState){
+         book=(Book)savedInstanceState.getSerializable("book");
+    }
 
     //Here you Save your data
     @Override
-    public void onSaveInstanceState2(Bundle outState) {}
+    public void onSaveInstanceState2(Bundle savedInstanceState) {
+        savedInstanceState.putSerializable("book",book);
+    }
 
 
-    public static MoviesFragment newInstance(){
-        return new MoviesFragment();
+    public static BooksFragment newInstance(Book book){
+        BooksFragment booksFragment=new BooksFragment();
+        booksFragment.book=book;
+        return booksFragment;
     }
 }

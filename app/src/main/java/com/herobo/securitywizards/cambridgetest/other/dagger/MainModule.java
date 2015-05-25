@@ -1,21 +1,22 @@
 package com.herobo.securitywizards.cambridgetest.other.dagger;
 
 import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.herobo.securitywizards.cambridgetest.Constant;
-import com.herobo.securitywizards.cambridgetest.model.MovieService;
-import com.herobo.securitywizards.cambridgetest.model.dataaccesslayer.MovieHttpService;
+import com.herobo.securitywizards.cambridgetest.model.BookService;
+import com.herobo.securitywizards.cambridgetest.model.dataaccesslayer.BookHttpService;
 import com.herobo.securitywizards.cambridgetest.other.MainApplication;
 import com.herobo.securitywizards.cambridgetest.other.helper.AndroidUtils;
 import com.herobo.securitywizards.cambridgetest.other.helper.PostFromAnyThreadBus;
 import com.herobo.securitywizards.cambridgetest.other.retrofit.RestAdapterRequestInterceptor;
 import com.herobo.securitywizards.cambridgetest.other.retrofit.RestErrorHandler;
 import com.herobo.securitywizards.cambridgetest.other.retrofit.UserAgentProvider;
+import com.herobo.securitywizards.cambridgetest.viewcontroller.BookListActivity;
+import com.herobo.securitywizards.cambridgetest.viewcontroller.activity.BaseActivity;
 import com.herobo.securitywizards.cambridgetest.viewcontroller.fragment.BaseFragment;
-import com.herobo.securitywizards.cambridgetest.viewcontroller.fragment.MoviesFragment;
+import com.herobo.securitywizards.cambridgetest.viewcontroller.fragment.BooksFragment;
 import com.squareup.okhttp.Cache;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.otto.Bus;
@@ -41,7 +42,9 @@ import retrofit.converter.GsonConverter;
         injects = {
                 MainApplication.class
                 ,BaseFragment.class
-                , MoviesFragment.class
+                , BooksFragment.class
+                , BaseActivity.class
+                , BookListActivity.class
 
         }
 )
@@ -115,15 +118,17 @@ public class MainModule {
 
     @Singleton
     @Provides
-    MovieHttpService provideProductHttpService(RestAdapter restAdapter){
-        return restAdapter.create(MovieHttpService.class);
+    BookHttpService provideProductHttpService(RestAdapter restAdapter){
+        return restAdapter.create(BookHttpService.class);
     }
 
     @Singleton
     @Provides
-    MovieService provideMovieService(MovieHttpService movieHttpService,AndroidUtils androidUtils){
-        return new MovieService(movieHttpService,androidUtils);
+    BookService provideMovieService(BookHttpService bookHttpService,AndroidUtils androidUtils){
+        return new BookService(bookHttpService,androidUtils);
     }
+
+
 
 
 

@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by Jaenelle Isidro (jaenelleisidro@yahoo.com) on 1/4/2015.
  */
-public class Movies implements Serializable {
+public class Books implements Serializable {
     public int start;
     public int num_found;
     public int numFound;
