@@ -1,0 +1,274 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Cambridge LMS</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/jquery.mobile-1.4.5.css">
+  <link rel="stylesheet" href="css/custom.css">
+<!--   <link rel="stylesheet" href="css/gold.css">
+  <link rel="stylesheet" href="css/jquery.mobile.icons.min.css"> -->
+  <script src="js/jquery-2.1.4.min.js"></script>
+  <script src="js/jquery.mobile-1.4.5.min.js"></script>
+   <script src="js/custom.js"></script>
+</head>
+
+
+<!-- #################################### HOME PAGES #################################### -->
+<div data-role="page" id="home">
+
+  <!-- PANEL -->
+  <div data-role="panel" id="menuPanel" data-display="reveal" data-position="right" data-swipe-close="true" data-theme="b">
+    <h4>Menu</h4>
+    <ul data-role="listview">
+      <!-- <li data-role="list-divider">Europe</li> -->
+      <li data-icon="false"><a href="#learning">My Learning</a></li>
+      <li data-icon="false"><a href="#teaching">My Teaching</a></li>
+      <li data-icon="false"><a href="#">Sign Out</a></li>
+    </ul>
+  </div> 
+  <!-- PANEL -->
+
+  <!-- HEADER -->
+  <div data-role="header" data-theme="b"> <!-- HEADER -->
+    <h1>Cambridge Learning App</h1>
+
+    <div class="ui-btn-right ui-nodisc-icon">
+      <a href="#" class="ui-btn ui-icon-cloud ui-btn-icon-notext">Signal</a>
+      <a href="#wifi" class="ui-btn ui-icon-recycle ui-btn-icon-notext" data-rel="popup" data-position-to="origin" data-transition="pop">Sync</a>
+      <a href="#menuPanel" class="ui-btn ui-icon-bars ui-btn-icon-notext">Menu</a>
+    </div>
+
+<!-- <nav data-role="navbar" data-iconpos="left">
+<ul>
+<li><a href="#teaching" data-icon="false" class="ui-nodisc-icon ui-btn-active">My Teaching</a></li>
+<li><a href="#learning" data-icon="false" class="ui-nodisc-icon">My Learning</a></li>
+</ul>
+</nav> -->
+
+</div>
+<!-- HEADER -->
+
+<!-- MAIN CONTENT -->
+<div data-role="main" class="ui-content home">
+
+  <div data-rel="back" data-role="popup" id="wifi" class="ui-content">
+    <a href="#" data-rel="back" class="ui-nodisc-icon ui-btn ui-corner-all ui-btn-b ui-icon-delete ui-btn-icon-notext ui-btn-left ui-mini">Close</a>
+    Can only sync when online
+  </div>
+
+  <div data-role="tabs">
+    <div data-role="navbar" class="navbar">
+      <ul>
+        <li><a href="#teaching" data-ajax="false" class="ui-btn-active ui-state-persist">My Teaching</a></li>
+        <li><a href="#learning" data-ajax="false">My Learning</a></li>
+      </ul>
+    </div>
+    <div id="teaching" class="ui-content">
+      
+
+<div class="ui-body ui-body-a">
+<article class="ui-grid-b ui-responsive">
+        <figure class="ui-block-a"><a href="#content" data-transition="slide">
+          <img src="images/cambridge-empower.jpg" alt="The Pulpit Rock">
+          <figcaption><h4>Class A</h4>Cambridge Empower</figcaption></a>
+        </figure>
+
+        <figure class="ui-block-b"><a href="#content" data-transition="slide">
+          <img src="images/cambridge-unlock.jpg" alt="The Pulpit Rock">
+          <figcaption><h4>Class B</h4>Cambridge Unlock</figcaption></a>
+        </figure>
+
+        <figure class="ui-block-c"><a href="#content" data-transition="slide">
+          <img src="images/cambridge-touchstone.jpg" alt="The Pulpit Rock">
+          <figcaption><h4>Mr. Evan's Top Set Class</h4>Cambridge Touchstone</figcaption></a>
+        </figure>
+
+      </article>
+</div>
+      
+    </div>
+
+    <div id="learning" class="ui-content">
+
+<div class="ui-body ui-body-a">      
+      <article class="ui-grid-b ui-responsive">
+
+        <figure class="ui-block-a"><a href="#content">
+          <img src="images/cambridge-unlock.jpg" alt="The Pulpit Rock">
+          <figcaption><h4>Class D</h4>Cambridge Unlock</figcaption></a>
+        </figure>
+
+        <figure class="ui-block-b"><a href="#content">
+          <img src="images/cambridge-empower.jpg" alt="The Pulpit Rock">
+          <figcaption><h4>Class E</h4>Cambridge Empower</figcaption></a>
+        </figure>
+
+
+
+        <figure class="ui-block-c"><a href="#content">
+          <img src="images/cambridge-touchstone.jpg" alt="The Pulpit Rock">
+          <figcaption><h4>Class F</h4>Cambridge Touchstone</figcaption></a>
+        </figure>
+
+      </article>
+</div>      
+    </div>
+  </div>
+</div>
+<!-- MAIN CONTENT -->
+
+<!-- FOOTER -->
+<div data-role="footer" data-position="fixed">
+  <h1>Footer Text</h1>
+</div>
+<!-- FOOTER -->
+</div> 
+<!-- #################################### HOME PAGES #################################### -->
+
+
+
+
+
+
+
+<!-- #################################### CONTENT PAGES #################################### -->
+<div data-role="page" id="content">
+
+  <!-- PANEL -->
+  <div data-role="panel" id="menuPanel2" data-display="reveal" data-position="right" data-swipe-close="true" data-theme="b">
+    <h4>Menu</h4>
+    <ul data-role="listview">
+      <!-- <li data-role="list-divider">Europe</li> -->
+      <li data-icon="false"><a href="#">My Learning</a></li>
+      <li data-icon="false"><a href="#">My Teaching</a></li>
+      <li data-icon="false"><a href="#">Sign Out</a></li>
+    </ul>
+  </div> 
+  <!-- PANEL -->
+
+  <!-- HEADER -->
+  <div data-role="header" data-theme="b">
+
+    <div class="ui-btn-left ui-nodisc-icon">
+      <a href="#home" class="ui-btn ui-icon-carat-l ui-btn-icon-notext" data-transition="slide" data-direction="reverse">Back</a>
+    </div>
+
+    <h1>Mr Evans’ Top Set Class</h1>
+
+    <div class="ui-btn-right ui-nodisc-icon">
+      <a href="#" class="ui-btn ui-icon-cloud ui-btn-icon-notext">Signal</a>
+      <a href="#wifi2" class="ui-btn ui-icon-recycle ui-btn-icon-notext" data-rel="popup" data-position-to="origin" data-transition="pop">Sync</a>
+      <a href="#menuPanel2" class="ui-btn ui-icon-bars ui-btn-icon-notext">Menu</a>
+    </div>
+
+  </div>
+  <!-- HEADER -->
+
+  <!-- MAIN CONTENT -->
+  <div data-role="main" class="ui-content content">
+
+    <div data-rel="back" data-role="popup" id="wifi2" class="ui-content">
+      <a href="#" data-rel="back" class="ui-nodisc-icon ui-btn ui-corner-all ui-btn-b ui-icon-delete ui-btn-icon-notext ui-btn-left ui-mini">Close</a>
+      Sync in progess
+    </div>
+
+
+    <div data-role="tabs">
+      <div data-role="navbar" class="navbar">
+        <ul>
+          <li><a href="#all" data-ajax="false" class="ui-btn-active ui-state-persist">All Content</a></li>
+          <li><a href="#downloaded" data-ajax="false">Downloaded Content</a></li>
+        </ul>
+      </div>
+      <div id="all" class="ui-content">
+        <form>
+          <input data-type="search" id="filterCollapsibles">
+        </form>
+        <div data-role="collapsibleset" data-filter="true" data-inset="true" id="myFilter" data-input="#filterCollapsibles">
+          <div data-role="collapsible" data-iconpos="right">
+            <h3>1 All About You</h3>
+            <ul data-role="listview" data-inset="false">
+              <li>A. Hello and Goodbye</li>
+              <li>B. Names </li>
+              <li>C. Personal Information</li>
+              <li>Listening Extra</li>
+            </ul>
+          </div>
+          <div data-role="collapsible" data-iconpos="right">
+            <h3>2 In Class</h3>
+            <ul data-role="listview" data-inset="false">
+              <li>Denmark</li>
+              <li>France</li>
+              <li>Mexico</li>
+              <li>Norway</li>
+            </ul>
+          </div>
+          <div data-role="collapsible" data-iconpos="right">
+            <h3>3 Favorite People</h3>
+            <ul data-role="listview" data-inset="false">
+              <li>Monday</li>
+              <li>Tuesday</li>
+              <li>Wednesday</li>
+            </ul>
+          </div>
+          <div data-role="collapsible" data-iconpos="right">
+            <h3>4 Everyday Life</h3>
+            <ul data-role="listview" data-inset="false">
+              <li>January</li>
+              <li>February</li>
+              <li>March</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div id="downloaded" class="ui-content">
+        <form>
+          <input data-type="search" id="filterCollapsibles">
+        </form>
+        <div data-role="collapsibleset" data-filter="true" data-inset="true" id="myFilter" data-input="#filterCollapsibles">
+          <div data-role="collapsible" data-iconpos="right">
+            <h3>3 Favorite People</h3>
+            <ul data-role="listview" data-inset="false">
+              <li>Monday</li>
+              <li>Tuesday</li>
+              <li>Wednesday</li>
+            </ul>
+          </div>
+          <div data-role="collapsible" data-iconpos="right">
+            <h3>4 Everyday Life</h3>
+            <ul data-role="listview" data-inset="false">
+              <li>January</li>
+              <li>February</li>
+              <li>March</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- MAIN CONTENT -->
+
+<!-- FOOTER -->
+<div data-role="footer" data-position="fixed">
+  <h1>Footer Text</h1>
+</div>
+<!-- FOOTER -->
+</div>
+<!-- #################################### CONTENT PAGES #################################### -->
+<script>
+    $("#all li").each(function() {
+        var liText=$(this).html();
+        $(this).html("<a href=\"http://openlibrary.org/search.json?title="+liText+"\">"+liText+"</a>");
+    });
+    
+</script>
+
+</body>
+
+</html>
